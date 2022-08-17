@@ -280,7 +280,7 @@ public final class BlockOptionalMeta {
         return block == this.block;
     }
 
-    public boolean matches(BlockState blockstate) {
+    public boolean matches(IBlockState blockstate) {
         Block block = blockstate.getBlock();
         return block == this.block && stateHashes.contains(blockstate.hashCode());
     }
