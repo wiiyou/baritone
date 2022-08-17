@@ -42,7 +42,6 @@ public final class BlockStateInterfaceAccessWrapper implements IBlockAccess {
         this.bsi = bsi;
     }
 
-    @Nullable
     @Override
     public TileEntity getTileEntity(BlockPos pos) {
         return null;
