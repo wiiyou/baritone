@@ -43,7 +43,7 @@ import baritone.gradle.task.ProguardTask
 
 apply plugin: 'java'
 apply plugin: 'maven'
-apply plugin: 'net.minecraftforge.gradle.tweaker-client'
+apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'org.spongepowered.mixin'
 
 sourceCompatibility = targetCompatibility = '1.8'
@@ -67,9 +67,8 @@ sourceSets {
 }
 
 minecraft {
-    version = '1.12.2'
+    version = '1.12.2-14.23.5.2768'
     mappings = 'stable_39'
-    tweakClass = 'baritone.launch.BaritoneTweaker'
     runDir = 'run'
 
     // The sources jar should use SRG names not MCP to ensure compatibility with all mappings
@@ -78,6 +77,11 @@ minecraft {
 
 repositories {
     mavenCentral()
+
+    maven {
+        name = 'minecraft-repo'
+        url = 'https://libraries.minecraft.net/'
+    }
 
     maven {
         name = 'spongepowered-repo'
@@ -91,6 +95,7 @@ repositories {
 }
 
 dependencies {
+    runtime launchCompile('net.minecraft:launchwrapper:1.11')
     runtime launchCompile('com.github.ImpactDevelopment:SimpleTweaker:1.2')
     runtime launchCompile('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
         // Mixin includes a lot of dependencies that are too up-to-date
@@ -130,7 +135,7 @@ jar {
     manifest {
         attributes(
                 'MixinConfigs': 'mixins.baritone.json',
-
+                'TweakClass': 'baritone.launch.BaritoneTweaker',
                 'Implementation-Title': 'Baritone',
                 'Implementation-Version': version
         )

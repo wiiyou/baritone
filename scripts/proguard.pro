@@ -12,6 +12,11 @@
 -flattenpackagehierarchy
 -repackageclasses 'baritone'
 
+# i shouldn't be ignoring these
+-dontwarn baritone.api.utils.BetterBlockPos
+-dontwarn baritone.api.utils.BlockOptionalMeta
+-dontwarn baritone.utils.BlockStateInterfaceAccessWrapper
+
 # lwjgl is weird
 -dontwarn org.lwjgl.**
 
@@ -81,7 +86,7 @@
 
 -libraryjars 'tempLibraries/netty-all-4.1.9.Final.jar'
 -libraryjars 'tempLibraries/oshi-core-1.1.jar'
--libraryjars 'tempLibraries/patchy-1.1.jar'
+-libraryjars 'tempLibraries/patchy-1.3.9.jar'
 -libraryjars 'tempLibraries/platform-3.4.0.jar'
 -libraryjars 'tempLibraries/realms-1.10.22.jar'
 -libraryjars 'tempLibraries/soundsystem-20120107.jar'
@@ -381,3 +386,5 @@
     public java.lang.String substring(int);
     public java.lang.String substring(int,int);
 }
+
+-printmapping mapping.txt

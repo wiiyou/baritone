@@ -30,7 +30,7 @@ public enum EntityClassById implements IDatatypeFor<Class<? extends Entity>> {
 
     @Override
     public Class<? extends Entity> get(IDatatypeContext ctx) throws CommandException {
-        ResourceLocation id = new ResourceLocation(ctx.getConsumer().getString());
+        /*ResourceLocation id = new ResourceLocation(ctx.getConsumer().getString());
         Class<? extends Entity> entity;
         try {
             entity = EntityList.REGISTRY.getObject(id);
@@ -47,7 +47,8 @@ public enum EntityClassById implements IDatatypeFor<Class<? extends Entity>> {
         if (entity == null) {
             throw new IllegalArgumentException("no entity found by that id");
         }
-        return entity;
+        return entity;*/
+        throw new RuntimeException("This method should not be ran"); 
     }
 
     @Override

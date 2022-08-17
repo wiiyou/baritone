@@ -78,4 +78,10 @@ public final class BlockStateInterfaceAccessWrapper implements IBlockAccess {
     public WorldType getWorldType() {
         return this.bsi.world.getWorldType();
     }
+
+    // Proguard is telling me this can't be here and IntelliJ is telling me I need it.
+    @Override
+    public boolean isSideSolid(BlockPos pos, EnumFacing side, boolean _default) {
+        return false;
+    }
 }
